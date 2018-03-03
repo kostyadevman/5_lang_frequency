@@ -3,6 +3,7 @@ import re
 import sys
 from collections import Counter
 
+COMMON_WORD_COUNT = 5
 
 def load_data(filepath):
     with open(filepath, 'r') as infile:
@@ -12,7 +13,7 @@ def load_data(filepath):
 
 def get_most_frequent_words(input_text):
     words = re.split('\W+', input_text)
-    five_most_common_word = Counter(words).most_common(5)
+    five_most_common_word = Counter(words).most_common(COMMON_WORD_COUNT)
 
     return five_most_common_word
 

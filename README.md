@@ -12,11 +12,12 @@ We have chosen ten of the most famous speeches in English. They range from celeb
 
 ```bash
 $ lang_frequency.py example.txt
-we
-most
-of
-the
-them
+The most frequent word in example.txt:
+('we', 3)
+('most', 3)
+('of', 3)
+('the', 3)
+('them', 2)
 ```
 # Project Goals
 

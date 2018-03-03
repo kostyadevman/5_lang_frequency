@@ -1,33 +1,28 @@
 import os
 import re
 import sys
+from collections import Counter
 
 
 def load_data(filepath):
     with open(filepath, 'r') as infile:
-       input_text = infile.read().lower()
+        input_text = infile.read().lower()
     return input_text
+
 
 def get_most_frequent_words(input_text):
     words = re.split('\W+', input_text)
-    words_count = len(words)
-    freq_words = {}
+    five_most_common_word = Counter(words).most_common(5)
 
-    for word in words:
-        if word not in freq_words:
-            freq_words[word] = words.count(word)
+    return five_most_common_word
 
-    freq_words_sorted = sorted(freq_words, key=freq_words.get, reverse=True)
-
-    return freq_words_sorted
 
 if __name__ == '__main__':
     input_file = sys.argv[1]
     if os.path.exists(input_file):
         input_text = load_data(input_file)
-        freq_words_sorted = get_most_frequent_words(input_text)
-        for word in freq_words_sorted[0:5]:
+        five_most_common_word = get_most_frequent_words(input_text)
+        for word in five_most_common_word:
             print(word)
-
     else:
         print("file {} doesn't exists ".format(input_file))

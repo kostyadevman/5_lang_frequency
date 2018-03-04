@@ -21,7 +21,7 @@ def get_most_frequent_words(input_text):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        exit('Usage: lang_frequency.py <path to file')
+        exit('Usage: python lang_frequency.py <path to file')
     input_file = sys.argv[1]
     if os.path.exists(input_file):
         input_text = load_data(input_file)

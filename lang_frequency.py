@@ -20,12 +20,14 @@ def get_most_frequent_words(input_text):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        exit('Usage: lang_frequency.py <path to file')
     input_file = sys.argv[1]
     if os.path.exists(input_file):
         input_text = load_data(input_file)
         most_common_words = get_most_frequent_words(input_text)
         print('The most frequent word in {}: '.format(input_file))
         for word in most_common_words:
-            print(word)
+            print('word: {} - frequency: {}'.format(word[0], word[1]))
     else:
         print("file {} doesn't exists ".format(input_file))
